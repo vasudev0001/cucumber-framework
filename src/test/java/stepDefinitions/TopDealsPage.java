@@ -20,7 +20,6 @@ public class TopDealsPage {
 	@Then("user search for a product on the top deals page")
 	public String user_search_for_a_product_on_the_top_deals_page() throws InterruptedException {
 
-		// topDealPage = textContextSetup.pageObjectManager.instantiateTopDealsPage();
 		topDealPage.clickONTopDealsLink();
 		textContextSetup.genericUtils.switchedToWindow_withURL();
 		topDealPage.sendTextToTopDealsSearchField("tom");
@@ -34,8 +33,6 @@ public class TopDealsPage {
 			throws InterruptedException {
 		assertEquals(textContextSetup.homePageProduct, dealsPAge_product, "both are differernt products");
 		System.out.println("Both searched products are same. It displays correct product.");
-		textContextSetup.genericUtils.closeBrowser();
-		textContextSetup.genericUtils.closeAllWindows();
 	}
 
 }

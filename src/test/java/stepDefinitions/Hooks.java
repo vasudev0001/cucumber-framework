@@ -5,11 +5,9 @@ import utils.TextContextSetup;
 
 public class Hooks {
 	private TextContextSetup textContextSetup;
-//	private WebDriver driver;
 
 	public Hooks(TextContextSetup textContextSetup) {
 		this.textContextSetup = textContextSetup;
-		// driver=textContextSetup.testBase.getDriverInstance();
 	}
 
 	@After

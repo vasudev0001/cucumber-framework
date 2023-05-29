@@ -21,7 +21,7 @@ public class TopDealsPage {
 	public String user_search_for_a_product_on_the_top_deals_page() throws InterruptedException {
 
 		topDealPage.clickONTopDealsLink();
-		textContextSetup.genericUtils.switchedToWindow_withURL();
+		topDealPage.switchedToWindow();
 		topDealPage.sendTextToTopDealsSearchField("tom");
 		String dealsPAge_product = topDealPage.getSearchedProductName();
 		System.out.println("product found in top deals page: " + dealsPAge_product);

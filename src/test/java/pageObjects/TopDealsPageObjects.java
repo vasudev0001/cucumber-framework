@@ -3,43 +3,37 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class TopDealsPageObjects {
+import utils.GenericUtils;
+import utils.TextContextSetup;
+
+public class TopDealsPageObjects extends GenericUtils {
 	public WebDriver driver;
+	public TextContextSetup textContextSetup;
 
 	public TopDealsPageObjects(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
-	//table[@class='table table-bordered']/thead//th//span[contains(text(),'Veg/fruit name')]
-	
-	By topDealsLink = By.xpath("//a[@class='cart-header-navlink' and text()='Top Deals']");
-	By vegTableElement = By.xpath(
-			"//table[@class='table table-bordered']/thead//th//span[contains(text(),'Veg/fruit name')]");
-	By searchField_topdeals = By.xpath("//input[@id='search-field']");
-	By searchedProduct_topDealsPage = By.xpath("//table[@class='table table-bordered']//tbody/tr/td[1]");
 
-	public void sendText(String text, By locator) {
-		driver.findElement(locator).sendKeys(text);
-	}
+	private By topDealsLink = By.xpath("//a[@class='cart-header-navlink' and text()='Top Deals']");
+	private By searchField_topdeals = By.xpath("//input[@id='search-field']");
+	private By searchedProduct_topDealsPage = By.xpath("//table[@class='table table-bordered']//tbody/tr/td[1]");
+	private String URL = "https://rahulshettyacademy.com/seleniumPractise/#/offers";
 
-	public String getTextFromElement(By locator) {
-		return driver.findElement(locator).getText();
-	}
-
-//-----------
 	public void clickONTopDealsLink() {
-		driver.findElement(topDealsLink).click();
+		clickOnButton(topDealsLink);
 	}
-//	public WebElement wait_Till_VegTable_HeaderVisible_TopDeals() {
-//		WebElement vegTableHeader = waitTillElementVisisble(vegTableElement, 2);
-//		return vegTableHeader;
-//	}
 
 	public void sendTextToTopDealsSearchField(String Searchtext) {
-		sendText(Searchtext, searchField_topdeals);
+		sendTextToField(searchField_topdeals, Searchtext);
 	}
 
 	public String getSearchedProductName() {
-		return getTextFromElement(searchedProduct_topDealsPage);
+		return getElementText(searchedProduct_topDealsPage);
+	}
+
+	public void switchedToWindow() {
+		switchedToWindow_withURL(URL);
 	}
 
 }
